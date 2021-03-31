@@ -7,7 +7,7 @@ Mat localBinaryPattern(Mat& imgIn) {
 
     copyMakeBorder(imgIn, imgIn, 1, 1, 1, 1, BORDER_CONSTANT, 0);
 
-    #pragma omp parallel shared(imgIn, weights)
+    #pragma omp parallel default(none) shared(imgIn, weights, imgOut)
     {
         #pragma omp for collapse(2) schedule(static)
                 for (int i = 1; i < imgIn.rows - 1; i++) {
