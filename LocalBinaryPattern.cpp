@@ -7,7 +7,7 @@ Mat localBinaryPattern(Mat& imgIn) {
 
     copyMakeBorder(imgIn, imgIn, 1, 1, 1, 1, BORDER_CONSTANT, 0);
 
-    //#pragma omp for collapse(2)
+    #pragma omp for collapse(2)
     for (int i = 1; i < imgIn.rows - 1; i++) {
         for (int j = 1; j < imgIn.cols - 1; j++) {
 
@@ -28,7 +28,6 @@ Mat localBinaryPattern(Mat& imgIn) {
                 if (neighbors[k] >= currentPixelGS )
                     newVal += weights[k];
             }
-
             imgOut.at<uchar>(i - 1, j - 1) = newVal;
 
         }
