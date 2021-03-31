@@ -12,7 +12,11 @@ int main() {
 
     Mat inputImg = imread("../input/img.jpg", 0);
     imshow("Image before LBP", inputImg);
+    double start = omp_get_wtime();
     Mat outputImg = localBinaryPattern(inputImg);
+    double end = omp_get_wtime();
+    double time = end - start;
+    cout << time <<"\n";
     imshow("Image after LBP", outputImg);
     waitKey(0);
 

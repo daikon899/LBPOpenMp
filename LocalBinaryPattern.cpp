@@ -12,16 +12,13 @@ Mat localBinaryPattern(Mat &imgIn) {
 
     copyMakeBorder(imgIn, imgIn, 1, 1, 1, 1, BORDER_CONSTANT, 0);
 
-    int tid, nThreads;
-    tid = -1;
-
     #ifdef _OPENMP
     std::cout << "_OPENMP defined" << std::endl;
     std::cout << "Num processors (Phys+HT): " << omp_get_num_procs() << std::endl;
-    omp_set_num_threads(128);
+    omp_set_num_threads(42);
     #endif
 
-    #pragma omp parallel default(none) shared(imgIn, weights, imgOut) private(tid, nThreads)
+    #pragma omp parallel default(none) shared(imgIn, weights, imgOut)
     {
         #pragma omp for collapse(2) schedule(static)
         for (int i = 1; i < imgIn.rows - 1; i++) {
