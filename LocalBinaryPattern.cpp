@@ -21,16 +21,16 @@ Mat localBinaryPattern(Mat& imgIn) {
             neighbors[6] = imgIn.at<uchar>(i + 1, j - 1);
             neighbors[7] = imgIn.at<uchar>(i, j - 1);
 
-            int currentPixelGS = imgIn.at<uchar>(i, j);
+            int oldVal = imgIn.at<uchar>(i, j);
 
             int newVal = 0;
             for (int k = 0; k < 8; k++) {
-                if (neighbors[k] >= currentPixelGS )
+                if (neighbors[k] >= oldVal )
                     newVal += weights[k];
             }
             imgOut.at<uchar>(i - 1, j - 1) = newVal;
-
         }
     }
+
     return imgOut;
 }
