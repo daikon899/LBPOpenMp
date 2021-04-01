@@ -16,7 +16,7 @@ int main() {
     Mat outputImg = localBinaryPattern(inputImg);
     double end = omp_get_wtime();
     double time = end - start;
-    cout << time <<"\n";
+    cout << time * 1000 << " milliseconds \n";
     imshow("Image after LBP", outputImg);
     waitKey(0);
 

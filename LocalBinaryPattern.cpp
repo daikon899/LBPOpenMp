@@ -15,7 +15,7 @@ Mat localBinaryPattern(Mat &imgIn) {
     #ifdef _OPENMP
     std::cout << "_OPENMP defined" << std::endl;
     std::cout << "Num processors (Phys+HT): " << omp_get_num_procs() << std::endl;
-    omp_set_num_threads(42);
+    omp_set_num_threads(8);
     #endif
 
     #pragma omp parallel default(none) shared(imgIn, weights, imgOut)
