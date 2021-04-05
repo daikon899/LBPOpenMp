@@ -1,5 +1,5 @@
 #ifdef _OPENMP
-#include <omp.h> // for OpenMP library functions
+#include <omp.h>
 #endif
 
 #include <opencv2/opencv.hpp>
@@ -8,17 +8,17 @@
 using namespace cv;
 using namespace std;
 
-int main() {
-
-    Mat inputImg = imread("../input/img.jpg", 0);
-    imshow("Image before LBP", inputImg);
-    double start = omp_get_wtime();
+int main(int argc, char** argv) {
+    String imgName = argv[1];
+    Mat inputImg = imread("../input/" + imgName, 0);
+    //imshow("Image before LBP", inputImg);
+    auto start = chrono::high_resolution_clock::now();
     Mat outputImg = localBinaryPattern(inputImg);
-    double end = omp_get_wtime();
-    double time = end - start;
-    cout << time * 1000 << " milliseconds \n";
-    imshow("Image after LBP", outputImg);
-    waitKey(0);
+    auto end = chrono::high_resolution_clock::now();
+    auto ms_int = chrono::duration_cast<chrono::milliseconds>(end - start);
 
-    return 0;
+    //imshow("Image after LBP", outputImg);
+    //waitKey(0);
+
+    return ms_int.count();
 }
