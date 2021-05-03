@@ -1,4 +1,4 @@
-This repository contains the final project for parallel computing course.
+This repository contains an implementation of [Local Binary Pattern algorithm](https://en.wikipedia.org/wiki/Local_binary_patterns) in OpenMP.
 
 ## Run
 To execute the code you need to:
