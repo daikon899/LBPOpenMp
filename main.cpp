@@ -9,7 +9,8 @@ using namespace cv;
 using namespace std;
 
 int main(int argc, char** argv) {
-    String imgName = argv[1];
+    //String imgName = argv[1];
+    String imgName = "img.jpg";
     Mat inputImg = imread("../input/" + imgName, 0);
     //imshow("Image before LBP", inputImg);
     auto start = chrono::high_resolution_clock::now();
