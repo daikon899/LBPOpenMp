@@ -20,7 +20,7 @@ int main(int argc, char ** argv) {
 
     cout << "Testing time increasing the number of threads \n";
     int *timeWrtThreadNum = testWithIncreasingThreadsNum(numThreads, N);
-    writeTestResults(timeWrtThreadNum, numThreads - 1, "thread_num");
+    writeTestResults(timeWrtThreadNum, numThreads, "thread_num");
 
     return 0;
 }

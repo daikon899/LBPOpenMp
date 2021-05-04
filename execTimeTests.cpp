@@ -40,11 +40,11 @@ int* testWithIncreasingSize(int numTests, int N) {
 }
 
 int* testWithIncreasingThreadsNum(int maxThreads, int N) {
-    int *time = (int *) malloc(sizeof(int) * (maxThreads - 1));
+    int *time = (int *) malloc(sizeof(int) * (maxThreads));
     String imgName = "img_bigger.jpg";
     Mat inputImg = imread("../input/" + imgName, 0);
 
-    for (int t = 2; t <= maxThreads; t++) {
+    for (int t = 1; t <= maxThreads; t++) {
         // evaluating the mean time for each iteration
         int partialSum = 0;
         for (int i = 0; i < N; i++) {
@@ -56,8 +56,8 @@ int* testWithIncreasingThreadsNum(int maxThreads, int N) {
             partialSum += ms_int.count();
         }
 
-        time[t - 2] = partialSum / N;
-        cout << "iteration with " << t << " threads ended in " << time[t - 2] << " milliseconds \n";
+        time[t - 1] = partialSum / N;
+        cout << "iteration with " << t << " threads ended in " << time[t - 1] << " milliseconds \n";
     }
 
     return time;
