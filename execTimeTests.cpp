@@ -25,7 +25,7 @@ int* testWithIncreasingSize(int numTests, int N) {
         int partialSum = 0;
         for (int j = 0; j < N; j++) {
             auto start = chrono::high_resolution_clock::now();
-            localBinaryPattern(inputImg, 10);
+            localBinaryPattern(inputImg, 4);
             auto end = chrono::high_resolution_clock::now();
             auto ms_int = duration_cast<chrono::milliseconds>(end - start);
 
@@ -33,7 +33,7 @@ int* testWithIncreasingSize(int numTests, int N) {
         }
 
         time[i] = partialSum / N;
-        cout << "iteration with a " << inputImg.rows << " X " << inputImg.cols << " image ended in " << time[i] << " milliseconds \n";
+        cout << "iteration with a " << inputImg.cols << " X " << inputImg.rows << " image ended in " << time[i] << " milliseconds \n";
     }
 
     return time;
