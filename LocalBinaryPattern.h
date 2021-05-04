@@ -11,6 +11,6 @@
 using namespace cv;
 using namespace std;
 
-Mat localBinaryPattern(Mat& imgIn);
+Mat localBinaryPattern(Mat& imgIn, int numThreads);
 
 #endif //LBPOPENMP_LOCALBINARYPATTERN_H

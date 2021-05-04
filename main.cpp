@@ -14,7 +14,7 @@ int main(int argc, char** argv) {
     Mat inputImg = imread("../input/" + imgName, 0);
     //imshow("Image before LBP", inputImg);
     auto start = chrono::high_resolution_clock::now();
-    Mat outputImg = localBinaryPattern(inputImg);
+    Mat outputImg = localBinaryPattern(inputImg, 10);
     auto end = chrono::high_resolution_clock::now();
     auto ms_int = chrono::duration_cast<chrono::milliseconds>(end - start);
 

@@ -7,7 +7,7 @@
 
 #endif
 
-Mat localBinaryPattern(Mat &imgIn) {
+Mat localBinaryPattern(Mat &imgIn, int numThreads) {
     const int weights[8] = {1, 2, 4, 8, 16, 32, 64, 128};
     int histogram[256] = {0};
 
@@ -18,7 +18,7 @@ Mat localBinaryPattern(Mat &imgIn) {
     #ifdef _OPENMP
     //std::cout << "_OPENMP defined" << std::endl;
     //std::cout << "Num processors (Phys+HT): " << omp_get_num_procs() << std::endl;
-    omp_set_num_threads(10);
+    omp_set_num_threads(numThreads);
     #endif
 
     #pragma omp parallel default(none) reduction(+: histogram) shared(imgIn, weights, imgOut)

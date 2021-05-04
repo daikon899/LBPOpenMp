@@ -11,7 +11,7 @@ find_package( OpenCV REQUIRED )
 include_directories( ${OpenCV_INCLUDE_DIRS} )
 
 add_executable(LBP_OpenMP LocalBinaryPattern.cpp LocalBinaryPattern.h main.cpp writeCsv.cpp writeCsv.h)
-add_executable(timeTests execTimeTests.cpp LocalBinaryPattern.cpp LocalBinaryPattern.h writeCsv.cpp writeCsv.h)
+add_executable(timeTests runTests.cpp execTimeTests.cpp execTimeTests.h LocalBinaryPattern.cpp LocalBinaryPattern.h writeCsv.cpp writeCsv.h)
 
 target_link_libraries(LBP_OpenMP ${OpenCV_LIBS})
 target_link_libraries(timeTests ${OpenCV_LIBS})
