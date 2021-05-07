@@ -7,12 +7,13 @@
 #include "execTimeTests.h"
 #include "LocalBinaryPattern.h"
 
+
 using namespace cv;
 using namespace std;
 using namespace std::chrono;
 
 int* testWithIncreasingSize(int numTests, int N) {
-    int *time =  (int*) malloc(sizeof(int) * numTests) ;
+    int *time =  (int*) malloc(sizeof(int) * numTests);
     String imgName = "img.jpg";
     Mat inputImg = imread("../input/" + imgName, 0);
 
@@ -23,9 +24,10 @@ int* testWithIncreasingSize(int numTests, int N) {
 
         // evaluating the mean time for each iteration
         int partialSum = 0;
+        Mat imgOut;
         for (int j = 0; j < N; j++) {
             auto start = chrono::high_resolution_clock::now();
-            localBinaryPattern(inputImg, 4);
+            imgOut = localBinaryPattern(inputImg, 4);
             auto end = chrono::high_resolution_clock::now();
             auto ms_int = duration_cast<chrono::milliseconds>(end - start);
 
@@ -33,7 +35,7 @@ int* testWithIncreasingSize(int numTests, int N) {
         }
 
         time[i] = partialSum / N;
-        cout << "iteration with a " << inputImg.cols << " X " << inputImg.rows << " image ended in " << time[i] << " milliseconds \n";
+        cout << "iteration with a " << imgOut.cols << " X " << imgOut.rows << " image ended in " << time[i] << " milliseconds \n";
     }
 
     return time;

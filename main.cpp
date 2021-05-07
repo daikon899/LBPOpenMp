@@ -18,8 +18,8 @@ int main(int argc, char** argv) {
     auto end = chrono::high_resolution_clock::now();
     auto ms_int = chrono::duration_cast<chrono::milliseconds>(end - start);
 
-    //imshow("Image after LBP", outputImg);
-    //waitKey(0);
+    imshow("Image after LBP", outputImg);
+    waitKey(0);
 
     return ms_int.count();
 }
