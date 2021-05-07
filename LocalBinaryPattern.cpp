@@ -24,8 +24,8 @@ Mat localBinaryPattern(Mat &imgIn, int numThreads) {
     #pragma omp parallel default(none) reduction(+: histogram) shared(workingImg, imgIn, weights, imgOut)
     {
         #pragma omp for collapse(2) //schedule(static)
-        for (int i = 1; i < imgIn.rows - 1; i++) {
-            for (int j = 1; j < imgIn.cols - 1; j++) {
+        for (int i = 1; i < imgIn.rows; i++) {
+            for (int j = 1; j < imgIn.cols; j++) {
                 int neighbors[8];
                 neighbors[0] = workingImg.at<uchar>(i - 1, j - 1);
                 neighbors[1] = workingImg.at<uchar>(i - 1, j);
