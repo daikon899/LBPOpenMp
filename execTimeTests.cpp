@@ -16,11 +16,13 @@ int* testWithIncreasingSize(int numTests, int N) {
     int *time =  (int*) malloc(sizeof(int) * numTests);
     String imgName = "img.jpg";
     Mat inputImg = imread("../input/" + imgName, 0);
+    int rowBorder = inputImg.rows / 2;
+    int colBorder = inputImg.cols / 2;
 
     for (int i = 0; i < numTests; i++) {
         //creating at each iteration a larger image (with double size)
         if(i != 0)
-            copyMakeBorder(inputImg, inputImg, (inputImg.rows/2), (inputImg.rows/2), (inputImg.cols/2), (inputImg.cols/2), BORDER_CONSTANT, 0);
+            copyMakeBorder(inputImg, inputImg, rowBorder, rowBorder, colBorder, colBorder, BORDER_CONSTANT, 0);
 
         // evaluating the mean time for each iteration
         int partialSum = 0;

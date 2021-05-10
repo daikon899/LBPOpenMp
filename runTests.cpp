@@ -9,7 +9,7 @@
 using namespace std;
 
 int main(int argc, char ** argv) {
-    int numIterations = 5;
+    int numIterations = 10;
     int N = 50;
     int numThreads = 10;
 
