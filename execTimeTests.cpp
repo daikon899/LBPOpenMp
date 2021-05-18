@@ -45,7 +45,7 @@ int* testWithIncreasingSize(int numTests, int N) {
 
 int* testWithIncreasingThreadsNum(int maxThreads, int N) {
     int *time = (int *) malloc(sizeof(int) * (maxThreads));
-    String imgName = "img_bigger.jpg";
+    String imgName = "img4k.jpg";
     Mat inputImg = imread("../input/" + imgName, 0);
 
     for (int t = 1; t <= maxThreads; t++) {

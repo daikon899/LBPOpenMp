@@ -9,9 +9,9 @@
 using namespace std;
 
 int main(int argc, char ** argv) {
-    int numIterations = 10;
+    int numIterations = 40;
     int N = 50;
-    int numThreads = 10;
+    int numThreads = 100;
 
     cout << "Testing time increasing image size \n";
     int *timeWrtSize = testWithIncreasingSize(numIterations, N);
