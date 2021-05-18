@@ -48,7 +48,7 @@ int* testWithIncreasingThreadsNum(int maxThreads, int N) {
     String imgName = "img4k.jpg";
     Mat inputImg = imread("../input/" + imgName, 0);
 
-    for (int t = 1; t <= maxThreads; t++) {
+    for (int t = 10; t <= maxThreads; t+=10) {
         // evaluating the mean time for each iteration
         int partialSum = 0;
         for (int i = 0; i < N; i++) {
