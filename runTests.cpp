@@ -11,7 +11,7 @@ using namespace std;
 int main(int argc, char ** argv) {
     int numIterations = 40;
     int N = 50;
-    int numThreads = 1000;
+    int numThreads = 64;
 
     cout << "Testing time increasing image size \n";
     int *timeWrtSize = testWithIncreasingSize(numIterations, N);
