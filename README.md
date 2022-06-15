@@ -1,4 +1,4 @@
-![last commit](https://img.shields.io/github/last-commit/sim-pez/PRNU)
+![last commit](https://img.shields.io/github/last-commit/sim-pez/lbp_omp)
 ![](https://img.shields.io/badge/Programming_Language-c++-blue.svg)
 
 # Intro 
